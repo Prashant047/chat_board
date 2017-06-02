@@ -8,21 +8,21 @@ git clone https://github.com/Prashant047/chat_board.git
 cd chat_board
 npm install
 ```
-edit the **`client.config.json`** file:
+edit the **`client.config.json`** file with server's ip_address and port, and your user name:
  (make sure that your user name is unique)
 
 ```json
 {
-    "name": "name", // your user name
-    "host": "192.168.1.14", //server's ip address
-    "port": "8081" // port 
+    "name": "name", 
+    "host": "192.168.1.14",
+    "port": "8081" 
 }
 ```
 
-edit the **`server.config.json`** file:
+edit the **`server.config.json`** file. Default port is 8081 change it if you want:
 ```json
 {
-    "port": "8081" // default port  /change it if you want
+    "port": "8081" 
 }
 ```
 
