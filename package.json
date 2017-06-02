@@ -1,0 +1,24 @@
+{
+  "name": "chat_board",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d built -w -s"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.1"
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "express": "^4.15.3",
+    "readline": "^1.3.0",
+    "socket.io": "^2.0.1",
+    "socket.io-client": "^2.0.1"
+  }
+}
