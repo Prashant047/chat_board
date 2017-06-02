@@ -2,12 +2,23 @@
 import express from 'express';
 import http from 'http';
 import io from 'socket.io';
+import fs from 'fs';
 //-----------------------------------------------
+
+let config_;
+try{
+    config_ = fs.readFileSync(__dirname + '/../server.config.json');
+}catch(err){
+    console.log('server.config.json file not found');
+    process.exit(0);
+}
+let server_config = JSON.parse(config_.toString());
+
 const app = express();
 const server = http.Server(app);
 const socket = io(server);
 
-const PORT = 8081;
+const PORT = server_config.port;
 
 //Starting the server============================
 server.listen(PORT,(error) => {

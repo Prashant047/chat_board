@@ -12,15 +12,29 @@ var _socket = require('socket.io');
 
 var _socket2 = _interopRequireDefault(_socket);
 
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //-----------------------------------------------
-var app = (0, _express2.default)(); //importing modules==============================
 
+//importing modules==============================
+var config_ = void 0;
+try {
+    config_ = _fs2.default.readFileSync(__dirname + '/../server.config.json');
+} catch (err) {
+    console.log('server.config.json file not found');
+    process.exit(0);
+}
+var server_config = JSON.parse(config_.toString());
+
+var app = (0, _express2.default)();
 var server = _http2.default.Server(app);
 var socket = (0, _socket2.default)(server);
 
-var PORT = 8081;
+var PORT = server_config.port;
 
 //Starting the server============================
 server.listen(PORT, function (error) {
