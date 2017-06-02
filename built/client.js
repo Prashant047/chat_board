@@ -26,7 +26,7 @@ var config_ = void 0;
 try {
     config_ = _fs2.default.readFileSync(__dirname + '/../client.config.json');
 } catch (err) {
-    console.log(err);
+    // console.log(err);
     console.log('client.config.json file not found'.red);
     process.exit(0);
 }

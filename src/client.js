@@ -11,7 +11,7 @@ try{
     config_ = fs.readFileSync(__dirname + '/../client.config.json');
 }
 catch(err){
-    console.log(err);
+    // console.log(err);
     console.log('client.config.json file not found'.red);
     process.exit(0);
 }
@@ -77,8 +77,6 @@ socket.on('take_list',(data) => {
         else{
             console.log('\t'+data.clients[y].name.magenta);
         }
-
-        
     }
     console.log('\tboard - common chat for everyone'.bold.magenta);
     
