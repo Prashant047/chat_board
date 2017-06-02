@@ -1,5 +1,5 @@
 # chat_board
-
+### Terminal chat for local network
 ## Usage 
 ### (node js required) [Download here.](https://nodejs.org/en/)
 
