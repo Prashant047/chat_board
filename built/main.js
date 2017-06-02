@@ -97,4 +97,3 @@ socket.on('connection', function (client) {
         });
     });
 });
-//# sourceMappingURL=main.js.map

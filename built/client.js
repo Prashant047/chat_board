@@ -12,15 +12,30 @@ var _colors = require('colors');
 
 var _colors2 = _interopRequireDefault(_colors);
 
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //-----------------------------------------------
 
-var HOST = '192.168.1.14'; //Importing all the modules======================
+//Importing all the modules======================
+var config_ = void 0;
 
-var PORT = 8081;
+try {
+    config_ = _fs2.default.readFileSync('../client.config.json');
+} catch (err) {
+    console.log('client.config.json file not found'.red);
+    process.exit(0);
+}
+
+var client_config = JSON.parse(config_.toString());
+
+var HOST = client_config.host;
+var PORT = client_config.port;
 var rl = _readline2.default.createInterface(process.stdin, process.stdout);
-var ME = 'pk';
+var ME = client_config.name;
 
 // let clients = [];
 
@@ -106,4 +121,3 @@ rl.on('line', function (line) {
     process.exit(0);
 });
 //-----------------------------------------------
-//# sourceMappingURL=client.js.map

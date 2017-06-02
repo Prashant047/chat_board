@@ -2,12 +2,25 @@
 import io from 'socket.io-client';
 import readline from 'readline';
 import colors from 'colors';
+import fs from 'fs';
 //-----------------------------------------------
 
-const HOST = '192.168.1.14';
-const PORT = 8081;
+let config_;
+
+try{
+    config_ = fs.readFileSync('../client.config.json');
+}
+catch(err){
+    console.log('client.config.json file not found'.red);
+    process.exit(0);
+}
+
+let client_config = JSON.parse(config_.toString());
+
+const HOST = client_config.host;
+const PORT = client_config.port;
 const rl   = readline.createInterface(process.stdin, process.stdout);
-const ME   = 'pk';
+const ME   = client_config.name;
 
 // let clients = [];
 
