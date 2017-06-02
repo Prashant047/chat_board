@@ -24,8 +24,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var config_ = void 0;
 
 try {
-    config_ = _fs2.default.readFileSync('../client.config.json');
+    config_ = _fs2.default.readFileSync(__dirname + '/../client.config.json');
 } catch (err) {
+    console.log(err);
     console.log('client.config.json file not found'.red);
     process.exit(0);
 }

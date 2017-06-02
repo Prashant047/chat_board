@@ -8,9 +8,10 @@ import fs from 'fs';
 let config_;
 
 try{
-    config_ = fs.readFileSync('../client.config.json');
+    config_ = fs.readFileSync(__dirname + '/../client.config.json');
 }
 catch(err){
+    console.log(err);
     console.log('client.config.json file not found'.red);
     process.exit(0);
 }
